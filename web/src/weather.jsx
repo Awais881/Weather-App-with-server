@@ -5,25 +5,37 @@ import { useState,useEffect } from 'react'
 
 
 
-const [weatherData, setWeatherData] = useState([])
-// const [city, setCity] = useState("")
+const Weather = () => {
+    
+    const [weatherData, setWeatherData] = useState([])
+    // const [city, setCity] = useState("")
 
-useEffect(() => {
+    useEffect(() => {
 
-const submitHandler = (e) => {
-    // e.preventDefault();
+    const submitHandler = (e) => {
+        // e.preventDefault();
 
-    console.log("I am click handler")
-    axios.get(`https://saad-weather.cyclic.app./weather`)
-        .then(response => {
-            console.log("response: ", response.data);
+        console.log("I am click handler")
+        axios.get(`https://eager-bass-parka.cyclic.app./weather`)
+            .then(response => {
+                console.log("response: ", response.data);
 
-            setWeatherData(response.data);
-        })
-        .catch(err => {
-            console.log("error: ", err);
-        })
+                setWeatherData(response.data);
+            })
+            .catch(err => {
+                console.log("error: ", err);
+            })
 
-}
-submitHandler()
+    }
+    submitHandler()
 },[]);
+  return (
+<>
+
+
+</>
+
+  )
+  }
+
+export default Weather
