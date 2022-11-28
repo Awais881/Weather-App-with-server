@@ -7,6 +7,14 @@ const port = process.env.PORT || 5001;
 
 app.use(cors());
 
+
+app.get("/abc", (req, res) => {
+  console.log("request ip:", req.ip);
+  res.send("Hello World" + new Date().toDateString());
+});
+
+
+
 app.get('/weather', (req, res) => {
     
     console.log(`${req.ip} is asking for weather`)
