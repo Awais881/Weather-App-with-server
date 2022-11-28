@@ -8,7 +8,7 @@ import { useState,useEffect } from 'react'
 const Weather = () => {
     
     const [weatherData, setWeatherData] = useState([])
-    // const [city, setCity] = useState("")
+  
 
     useEffect(() => {
 
