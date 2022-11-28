@@ -15,7 +15,7 @@ const Weather = () => {
     const submitHandler = (e) => {
         // e.preventDefault();
 
-        axios.get(`https://eager-bass-parka.cyclic.app`)
+        axios.get(`https://eager-bass-parka.cyclic.app./weather`)
         .then(response => {
           console.log("response: ", response.data);
           console.log("I am click handler")
@@ -54,7 +54,7 @@ const Weather = () => {
   
     <div id="forcastDiv" className="forcastDiv"> 
         <div className="forcastCard">
-            <div className="tempC">{Math.round(weatherData?.temp_c)}°C</div>
+            <div className="temp_c">{Math.round(weatherData?.temp_c)}°C</div>
         <div id="time">{new Date().toDateString()}</div>
         <div className="day">Humidity: {weatherData.humidity}%</div>
             <div className="min">Min : {weatherData.max_temp_c}°C</div>
