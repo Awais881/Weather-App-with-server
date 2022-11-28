@@ -15,7 +15,7 @@ app.get("/abc", (req, res) => {
 
 
 
-app.get('/weather', (req, res) => {
+app.get("/weather", (req, res) => {
     
     console.log(`${req.ip} is asking for weather`)
 

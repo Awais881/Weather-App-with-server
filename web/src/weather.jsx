@@ -15,10 +15,10 @@ const Weather = () => {
     const submitHandler = (e) => {
         // e.preventDefault();
 
-        console.log("I am click handler")
         axios.get(`https://eager-bass-parka.cyclic.app`)
-            .then(response => {
-                console.log("response: ", response.data);
+        .then(response => {
+          console.log("response: ", response.data);
+          console.log("I am click handler")
 
                 setWeatherData(response.data);
             })
