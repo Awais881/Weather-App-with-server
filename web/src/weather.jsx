@@ -16,7 +16,7 @@ const Weather = () => {
         // e.preventDefault();
 
         console.log("I am click handler")
-        axios.get(`https://eager-bass-parka.cyclic.app./weather`)
+        axios.get(`https://eager-bass-parka.cyclic.app/weather`)
             .then(response => {
                 console.log("response: ", response.data);
 
