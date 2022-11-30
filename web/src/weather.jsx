@@ -3,19 +3,22 @@ import axios from "axios"
 import './weather.css'
 import { useState,useEffect } from 'react'
 
-
+let baseUrl = ``;
+if (window.location.href.split(":")[0] === "http") {
+    baseUrl = `http://localhost:5001`;
+}
 
 const Weather = () => {
     
-    const [weatherData, setWeatherData] = useState([])
+    const [weatherData, setWeatherData] = useState(null)
+    const [cityName, setCityName] = useState("")
+
   
 
-    useEffect(() => {
-
     const submitHandler = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
 
-        axios.get(`https://eager-bass-parka.cyclic.app./weather`)
+        axios.get(`${baseUrl}/weather`)
         .then(response => {
           console.log("response: ", response.data);
           console.log("I am click handler")
@@ -26,9 +29,9 @@ const Weather = () => {
                 console.log("error: ", err);
             })
 
-    }
-    submitHandler()
-},[]);
+    
+  
+}
   return (
 <>
 
@@ -40,20 +43,24 @@ const Weather = () => {
     
 
 
-        <form className="formm">
-            <input type="text" id='city' placeholder="Enter your city name" />
-             {/* <button type="submit">Get Weather</button>  */}
+        <form className="formm" onSubmit={submitHandler}>
+            <input type="text" id='city' 
+            placeholder="Enter your city name" 
+            onChange={(e) => { setCityName(e.target.value)}}
+            
+            />
+            
         </form>
-        <div className="main_container">
-          
+               
+        </div> 
       
-      
+        {(weatherData === null) ? null :
 
-
-        </div>
-  
+        
+     
     <div id="forcastDiv" className="forcastDiv"> 
         <div className="forcastCard">
+        <div className="city">{weatherData.city}</div>
             <div className="temp_c">{Math.round(weatherData?.temp_c)}°C</div>
         <div id="time">{new Date().toDateString()}</div>
         <div className="day">Humidity: {weatherData.humidity}%</div>
@@ -62,11 +69,13 @@ const Weather = () => {
         </div> 
 
 
-    </div> 
-    </div> 
-</>
 
-  )
-  }
+    </div> 
+}
+        
+</>
+)
+}
+
 
 export default Weather

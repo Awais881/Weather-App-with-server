@@ -15,12 +15,12 @@ app.get("/abc", (req, res) => {
 
 
 
-app.get("/weather", (req, res) => {
+app.get("/weather/:cityName", (req, res) => {
     
     console.log(`${req.ip} is asking for weather`)
 
     res.send({
-        city: "karachi",
+        city: req.params.cityName,
         temp_c: 26,
         humidity: 72,
         max_temp_c: 31,
